@@ -63,14 +63,10 @@ create table participe
     FOREIGN KEY(id_t) REFERENCES trajet(id_t)
 );
 
-create table evalutation
-(
-   
-);
-
 insert into ville values(NULL,'Troyes','Aube');
 insert into ville values(NULL,'Reims','Aube');
 insert into ville values(NULL,'Paris','Paris');
 insert into ville values(NULL,'Clermont-Ferrand','Puy-de-Dome');
 
+insert into compte values(NULL,'admin','admin','070694','admin','admin',0,'1');
     
