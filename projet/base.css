@@ -169,7 +169,7 @@ body {
 
 /* Menu de navigation */
 #navigation {
-	width: 200px;
+	width: 300px;
 	float: left; /* -> 6 */
 }
 #navigation ul {

@@ -122,3 +122,22 @@ function PreparerTrajet($tab1){
 function comptepassagers(){
     
 }
+
+function verifadmin($login){
+    include('connect.php');
+    include('menu.php');
+    $verif = "  select isAdmin
+                from compte
+                where login = '".$login."'
+            "
+    ;
+    $result_verif = mysqli_query($db, $verif);
+    $admin = mysqli_fetch_array($result_verif);
+    if($admin[0]==0){
+        menu();
+    }
+    else{
+        menu_admin();
+    }
+            
+}

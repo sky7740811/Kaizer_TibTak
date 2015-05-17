@@ -22,7 +22,7 @@ login($login);
 		</p>    
     <div id="centre">   
         <div id="navigation">
-			<?php include('menu.php');?>
+			<?php verifadmin($login);?>
         </div><!-- #navigation -->
         <div id="contenu">
 <?php
