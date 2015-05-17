@@ -13,6 +13,7 @@ login($login);
 ?>
 <div id="global">
     <div id="entete">
+        
     
     <a href='accueil.php'><img src='accueil.png' height='30'></a>
 		
