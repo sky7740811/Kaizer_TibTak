@@ -28,9 +28,9 @@ function listAnnee($deban,$nban,$anneeSelect){ //debut annee, nombre annee
     echo "</select><p/>";
 }
 
-function listNbPlace($select){ //debut annee, nombre annee
+function listNbPlace($select){ 
     
-        for($i=1;$i<=9;$i++){
+        for($i=1;$i<=$select;$i++){
             echo "<option "; 
                 if ($select!= 0 && ($select == $i)){
                     echo "selected='selected'";
