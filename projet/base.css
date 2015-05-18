@@ -10,16 +10,16 @@
 
 /* Page */
 html {
-	font-size: 100%; /* Voir -> Note 1 � la fin de la feuille de styles. */
+    font-size: 100%; /* Voir -> Note 1 � la fin de la feuille de styles. */
 }
 body {
-	margin: 0;
-	padding: 10px 20px; /* Note -> 2 */
-	font-family: Verdana, "Bitstream Vera Sans", "Lucida Grande", sans-serif; /* 3 */
-	font-size: .8em; /* -> 4 */
-	line-height: 1.25; /* -> 5 */
-	color: black;
-	background: white;
+    margin: 0;
+    padding: 10px 20px; /* Note -> 2 */
+    font-family: Verdana, "Bitstream Vera Sans", "Lucida Grande", sans-serif; /* 3 */
+    font-size: .8em; /* -> 4 */
+    line-height: 1.25; /* -> 5 */
+    color: black;
+    background: white;
 }
 
 /*fieldset*/
@@ -30,15 +30,15 @@ fieldset{
 
 /* Titres */
 h1, h2, h3, h4, h5, h6 {
-	margin: 1em 0 .5em 0; /* -> 6 */
+    margin: 1em 0 .5em 0; /* -> 6 */
 }
 h1, h2 {
-	font-family: Georgia, "Bitstream Vera Serif", Norasi, serif;
-	font-weight: normal; /* -> 7 */
+    font-family: Georgia, "Bitstream Vera Serif", Norasi, serif;
+    font-weight: normal; /* -> 7 */
 }
 h1 {
-	font-size: 3em; /* -> 8 */
-	font-style: italic;
+    font-size: 3em; /* -> 8 */
+    font-style: italic;
 }
 h2 {font-size: 1.8em;}
 h3 {font-size: 1.2em;}
@@ -46,169 +46,169 @@ h4 {font-size: 1em;}
 
 /* Listes */
 ul, ol {
-	margin: .75em 0 .75em 24px;
-	padding: 0; /* -> 9 */
+    margin: .75em 0 .75em 24px;
+    padding: 0; /* -> 9 */
 }
 ul {
-	list-style: square;
+    list-style: square;
 }
 li {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 /* Paragraphes */
 p {
-	margin: .75em 0;
+    margin: .75em 0;
 }
 li p, blockquote p {
-	margin: .5em 0;
+    margin: .5em 0;
 }
 
 /* Citations */
 blockquote, q {
-	font-size: 1.1em;
-	font-style: italic;
-	font-family: Georgia, "Bitstream Vera Serif", Norasi, serif;
+    font-size: 1.1em;
+    font-style: italic;
+    font-family: Georgia, "Bitstream Vera Serif", Norasi, serif;
 }
 blockquote {
-	margin: .75em 0 .75em 24px;
+    margin: .75em 0 .75em 24px;
 }
 cite {
-	font-style: italic;
+    font-style: italic;
 }
 
 /* Liens */
 a {
-	color: mediumblue;
-	text-decoration: underline;
+    color: mediumblue;
+    text-decoration: underline;
 }
 a:hover, a:focus {
-	color: crimson;
+    color: crimson;
 }
 a img {
-	border: none; /* -> 10 */
+    border: none; /* -> 10 */
 }
 
 /* Divers �l�ments de type en-ligne */
 em {
-	font-style: italic;
+    font-style: italic;
 }
 strong {
-	font-weight: bold;
-	color: dimgray;
+    font-weight: bold;
+    color: dimgray;
 }
 
 
 /* --- STYLES POUR CERTAINS CONTENUS DES GABARITS --- */
 
 pre, code {
-	font-size: 100%;
-	font-family: "Bitstream Vera Mono", "Lucida Console", "Courier New", monospace;
+    font-size: 100%;
+    font-family: "Bitstream Vera Mono", "Lucida Console", "Courier New", monospace;
 }
 pre {
-	width: 90%;
-	overflow: auto;
-	overflow-y: hidden;
-	margin: .75em 0;
-	padding: 12px;
-	background: #eee;
-	color: #555;
+    width: 90%;
+    overflow: auto;
+    overflow-y: hidden;
+    margin: .75em 0;
+    padding: 12px;
+    background: #eee;
+    color: #555;
 }
 pre strong {
-	font-weight: normal;
-	color: black;
+    font-weight: normal;
+    color: black;
 }
 #copyright {
-	margin: 20px 0 5px 0;
-	text-align: right;
-	font-size: .8em;
-	color: #848F63;
+    margin: 20px 0 5px 0;
+    text-align: right;
+    font-size: .8em;
+    color: #848F63;
 }
 #copyright a {
-	color: #848F63;
-	text-decoration: none;
+    color: #848F63;
+    text-decoration: none;
 }
 #copyright a:hover, #copyright a:focus {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* --- POSITIONNEMENT --- */
 
 /* Page */
 body {
-	padding: 10px 5px;
+    padding: 10px 5px;
 }
 #global {
-	width: 90%; /* -> 3 */
-	margin: 0 auto; /* -> 4 */
-       margin-left: 5%;
-       margin-right: 5%;
+    width: 90%; /* -> 3 */
+    margin: 0 auto; /* -> 4 */
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 /* En-t�te */
 #entete {
-	padding: 20px 20px 20px 0;
+    padding: 20px 20px 20px 0;
 }
 #entete h1 {
-	margin: 0;
+    margin: 0;
 }
 #entete h1 img {
-	float: left;
-	margin: 7px 20px 10px 0;
+    float: left;
+    margin: 7px 20px 10px 0;
 }
 #entete .sous-titre {
-	margin: 4px 0 15px 0;
+    margin: 4px 0 15px 0;
 }
 
 /* Bloc central contenant #navigation et #contenu */
 #centre {
-	width: 100%; /* -> 5 */
-	overflow: hidden; /* -> 5 */
+    width: 100%; /* -> 5 */
+    overflow: hidden; /* -> 5 */
 }
 
 /* Menu de navigation */
 #navigation {
-	width: 300px;
-	float: left; /* -> 6 */
+    width: 300px;
+    float: left; /* -> 6 */
 }
 #navigation ul {
-	margin: 0;
-	padding: 20px 10px 20px 10px;
-	list-style: none;
+    margin: 0;
+    padding: 20px 10px 20px 10px;
+    list-style: none;
 }
 #navigation a {
-	display: block;
-	height: 1%; /* -> 7 */
-	padding: 6px 10px 6px 10px;
-	line-height: 1.5;
-	font-size: .9em;
-	text-decoration: none;
+    display: block;
+    height: 1%; /* -> 7 */
+    padding: 6px 10px 6px 10px;
+    line-height: 1.5;
+    font-size: .9em;
+    text-decoration: none;
 }
 
 /* Contenu */
 #contenu {
-	margin-left: 20%;
-        margin-right: 20%;
-	padding: 10px 10px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 10px 10px;
 }
 #contenu > :first-child {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 #contenu p, #contenu li {
-	line-height: 1.5;
+    line-height: 1.5;
 }
 
 /* Pied de page */
 #pied {
-	margin: 0;
-	padding: 15px 20px 10px 0;
-	font-size: .85em;
+    margin: 0;
+    padding: 15px 20px 10px 0;
+    font-size: .85em;
 }
 
 /* Mention de copyright */
 #copyright {
-	margin: 8px 0 0 0;
-	font-size: 1em;
-	text-align: left;
+    margin: 8px 0 0 0;
+    font-size: 1em;
+    text-align: left;
 }

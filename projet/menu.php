@@ -1,6 +1,7 @@
 <?php
-function menu(){
-echo    '<ul>
+
+function menu() {
+    echo '<ul>
         <li><a href="Modification.php">Caractériser son compte</a></li>
         <li><a href="infovehicule.php">Information sur le véhicule</a></li>
         <li><a href="AjoutTrajet.php">Ajout d\'un nouveau trajet</a></li>
@@ -10,8 +11,8 @@ echo    '<ul>
         </ul>';
 }
 
-function menu_admin(){
-    echo    '<ul>
+function menu_admin() {
+    echo '<ul>
         <li><a href="ListCompte.php">Visualisation de la liste des comptes</a></li>
         <li><a href="Modification.php">Caractériser son compte</a></li>
         <li><a href="infovehicule.php">Information sur le véhicule</a></li>
@@ -21,4 +22,5 @@ function menu_admin(){
         <a href="deconnexion.php">Déconnexion</a>
         </ul>';
 }
+
 ?>
