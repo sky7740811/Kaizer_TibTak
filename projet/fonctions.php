@@ -140,10 +140,40 @@ function verifadmin($login) {
     }
 }
 
-function header() {
-    
+function customHeader($title, $css) {
+    echo '<html>';
+    echo '<head>';
+    echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
+    echo '<title>' . $title . '</title></head>';
+    echo '<link rel="stylesheet" type="text/css" href="' . $css . '" media="all" />';
+    echo '<body>';
+    $login = $_SESSION['login'];
+    login($login);
+    echo '<div id="global">';
+    echo '<div id="entete">';
+    echo '<a href="accueil.php"><img src="accueil.png" height="30"></a>';
+    echo '<p class="sous-titre">';
+    echo 'Bonjour, ' . $login;
+    echo '</p>';
+    echo '<div id="centre>';
+    echo '<div id="navigation">';
+    verifadmin($login);
+    echo '</div><!-- #navigation -->';
+    echo '<div id="contenu">';
+    return $login;
 }
 
-function footer() {
-    
+function customFooter() {
+    echo '</div><!-- #contenu -->';
+    echo '</div><!-- #centre -->';
+
+    echo '<div id="pied">';
+    echo '<p id="copyright">';
+    echo 'Mise en page &copy; 2015';
+    echo 'Chihoon Lee, Thibault Neulat';
+    echo '</p>';
+    echo '</div><!-- #pied -->';
+    echo '</div><!--#global-->';
+    echo '</body>';
+    echo '</html>';
 }
