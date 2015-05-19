@@ -1,44 +1,47 @@
-<?php session_start(); ?>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Covoiturage</title></head>
-    <link rel="stylesheet" type="text/css" href="base.css" media="all" />
-    <body>
+<?php 
+session_start(); 
+include('fonctions.php');
+$login = customHeader('Covoiturage', 'base.css');
+include('connect.php');
 
-        <?php
-        include('fonctions.php');
-        $login = $_SESSION['login'];
-        login($login);
-        ?>
-        <div id="global">
-            <div id="entete">
+$select = 
+            "
+             select *
+             from compte
+            "
+;
+$resultat = mysqli_query($db, $select);
 
-                <a href='accueil.php'><img src='accueil.png' height='30'></a>
+while($row = mysqli_fetch_assoc($resultat)) {
+    $tab1[]=$row;
+}
+
+echo "<table border=1>
+        <tr>
+            <th>Numero de compte</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Date de naissance</th>
+            <th>Identifiant</th>
+            <th>Mot de passe</th>
+            <th>Argent</th>
+            <th>IsAdmin</th>
+        </tr>";
+
+foreach ($tab1 as $key => $value) {
+    echo    "   <tr>
+                    <td>" . ($tab1[$key]['id_c']) . "</td>
+                    <td>" . $tab1[$key]['nom'] . "</td>
+                    <td>" . $tab1[$key]['prenom'] . "</td>
+                    <td>" . $tab1[$key]['datenaissance'] . "</td>
+                    <td>" . $tab1[$key]['login'] . "</td>
+                    <td>" . $tab1[$key]['mdp'] . "</td>
+                    <td>" . ($tab1[$key]['argent']) . "</td>
+                    <td>" . ($tab1[$key]['isAdmin']) . "</td>
+                </tr>";
+    }
+echo "</table></form>";
 
 
-                <p class="sous-titre">
-                    <?php echo ("Bonjour, $login"); ?>
-                </p>    
-                <div id="centre">   
-                    <div id="navigation">
-                        <?php include('menu.php'); ?>
-                    </div><!-- #navigation -->
-                    <div id="contenu">
-
-
-                        <?php
-                        ?>
-
-                    </div><!-- #contenu -->
-                </div><!-- #centre -->
-
-                <div id="pied">
-                    <p id="copyright">
-                        Mise en page &copy; 2015
-                        Chihoon Lee, Thibault Neulat
-                    </p>
-                </div><!-- #pied -->
-            </div><!--#global-->
-    </body>
-</html>
+customFooter();
+?>
