@@ -39,9 +39,8 @@ foreach ($tab1 as $key => $value) {
                     <td>" . ($tab1[$key]['argent']) . "</td>
                     <td>" . ($tab1[$key]['isAdmin']) . "</td>
                 </tr>";
-    }
+}
 echo "</table></form>";
-
 
 customFooter();
 ?>
