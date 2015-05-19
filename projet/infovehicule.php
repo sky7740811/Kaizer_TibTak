@@ -59,7 +59,7 @@
             <p/>
             <label>Nombre de places (sans comptant le conducteur)</label>
             <select name='nb_place'>";
-                            listNbPlace(0);
+                            listNbPlace(9);
                             echo "<p/>
             <label>Année de remise</label>";
                             listannee(1980, 35, 0);
