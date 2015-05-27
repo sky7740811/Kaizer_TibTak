@@ -1,8 +1,7 @@
 <?php
-//Ceci est un test
 session_start();
 include('fonctions.php');
-$login = customHeader("Covoiturage", "base.css");
+$login = customHeader("Ajout d'un trajet");
 include('connect.php');
 //Verifier si utilisateur a deja enregistrer son vehicule
 $select1 = "  select * 

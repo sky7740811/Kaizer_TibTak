@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
 include('fonctions.php');
-$login = customHeader('Covoiturage', 'base.css');
+$login = customHeader('Liste des trajets');
 include('connect.php');
 
 $select1 = "select      ville1.nom as Ville_Depart,

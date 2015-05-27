@@ -1,5 +1,4 @@
 <?php
-
 function login($login) {
 //verification si on essaye d'acceder a cette page sans login
     if (empty($login)) {
@@ -140,40 +139,53 @@ function verifadmin($login) {
     }
 }
 
-function customHeader($title, $css) {
-    echo '<html>';
-    echo '<head>';
-    echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
-    echo '<title>' . $title . '</title></head>';
-    echo '<link rel="stylesheet" type="text/css" href="' . $css . '" media="all" />';
-    echo '<body>';
+function customHeader($title) {
+    include('connect.php');
+    echo "<!DOCTYPE html>\n";
+    echo "<html>\n";
+    echo "<head>\n";
+    echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />\n";
+    echo "<title>" . $title . "</title>\n";
+    echo "<link rel='stylesheet' type='text/css' href='base.css' media='all' />\n";
+    echo "</head>\n";
+    
+    echo "<body>\n";
     $login = $_SESSION['login'];
     login($login);
-    echo '<div id="global">';
-    echo '<div id="entete">';
-    echo '<a href="accueil.php"><img src="accueil.png" height="30"></a>';
-    echo '<p class="sous-titre">';
-    echo 'Bonjour, ' . $login;
-    echo '</p>';
-    echo '<div id="centre">';
-    echo '<div id="navigation">';
+    if (!isset($_SESSION['photo']) || $_SESSION['photo'] == NULL) {
+        $exist = "select distinct photo from compte where login='" . $login . "'";
+        $resultat = mysqli_query($db, $exist);
+        $tab = mysqli_fetch_array($resultat);
+        $photo = $tab[0];
+        $_SESSION['photo'] = $photo;
+    }
+    else $photo = $_SESSION['photo'];
+    echo "<div id='global'>";
+    echo "<div id='entete'>";
+    echo "<a href='accueil.php'><img src='accueil.png' height='30'></a>";
+    echo "<p class='sous-titre'>";
+    echo "Bonjour, " . $login;
+    echo "</p>";
+    echo "<img src='images/" . $photo . "' height='128'>";
+    echo "</div><!--#entete-->\n";
+    echo "<div id='centre'>";
+    echo "<div id='navigation'>";
     verifadmin($login);
-    echo '</div><!-- #navigation -->';
-    echo '<div id="contenu">';
+    echo "</div><!-- #navigation -->";
+    echo "<div id='contenu'>";
     return $login;
 }
 
 function customFooter() {
-    echo '</div><!-- #contenu -->';
-    echo '</div><!-- #centre -->';
+    echo "</div><!-- #contenu -->";
+    echo "</div><!-- #centre -->";
 
-    echo '<div id="pied">';
-    echo '<p id="copyright">';
-    echo 'Mise en page &copy; 2015';
-    echo 'Chihoon Lee, Thibault Neulat';
-    echo '</p>';
-    echo '</div><!-- #pied -->';
-    echo '</div><!--#global-->';
-    echo '</body>';
-    echo '</html>';
+    echo "<div id='pied'>";
+    echo "<p id='copyright'>";
+    echo "Mise en page &copy; 2015 Chihoon Lee, Thibault Neulat";
+    echo "</p>";
+    echo "</div><!-- #pied -->";
+    echo "</div><!--#global-->";
+    echo "</body>";
+    echo "</html>";
 }

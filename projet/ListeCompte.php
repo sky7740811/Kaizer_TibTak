@@ -1,19 +1,19 @@
-<?php 
-session_start(); 
+<?php
+
+session_start();
 include('fonctions.php');
-$login = customHeader('Covoiturage', 'base.css');
+$login = customHeader('Liste des comptes');
 include('connect.php');
 
-$select = 
-            "
+$select = "
              select *
              from compte
             "
 ;
 $resultat = mysqli_query($db, $select);
 
-while($row = mysqli_fetch_assoc($resultat)) {
-    $tab1[]=$row;
+while ($row = mysqli_fetch_assoc($resultat)) {
+    $tab1[] = $row;
 }
 
 echo "<table border=1>
@@ -29,7 +29,7 @@ echo "<table border=1>
         </tr>";
 
 foreach ($tab1 as $key => $value) {
-    echo    "   <tr>
+    echo "   <tr>
                     <td>" . ($tab1[$key]['id_c']) . "</td>
                     <td>" . $tab1[$key]['nom'] . "</td>
                     <td>" . $tab1[$key]['prenom'] . "</td>
