@@ -189,3 +189,9 @@ function customFooter() {
     echo "</body>";
     echo "</html>";
 }
+
+function verifString($nom, $string, $result) {
+    if (!isset($string) || empty($string)) {
+        $result += "Le champ " . $nom . " est vide. ";
+    }
+}

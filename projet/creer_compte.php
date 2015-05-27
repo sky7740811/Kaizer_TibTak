@@ -32,14 +32,14 @@ include('fonctions.php')
             <label>Login</label>
             <input type="text" name="login"/>
             <p/>
-            <label>Mots de passe</label>
+            <label>Mot de passe</label>
             <input type="password" name="mdp" minlength="4" maxlength="20"/>
             <p/>
-            <label>Confirmation mdp</label>
+            <label>Confirmation mot de passe</label>
             <input type="password" name="confirm_mdp"/>
             <p/>
             <label>Photo</label>
-            <input type="file" name="photo1" id="photo" /><p/>
+            <input type="file" name="photo" id="photo" /><p/>
             <input type="submit" name= "submit" value="Valider"/>
             <input type="reset" value="Effacer"/>
 
@@ -54,7 +54,7 @@ include('fonctions.php')
                 (isset($_POST['confirm_mdp']) && !empty($_POST['confirm_mdp']))) {
             //verification de mots de passe
             if ($_POST['mdp'] != $_POST['confirm_mdp']) {
-                echo js("alert('Les deux mots de passes sont différents')");
+                js("alert('Les deux mots de passes sont différents')");
             } else {
                 include('connect.php');
                 $nom = $_POST['nom'];
@@ -74,7 +74,7 @@ include('fonctions.php')
                 $logindansbd = mysqli_fetch_row($resultat_login)[0];
                 //echo "Login selected dans bd : " .$logindansbd . "<br/>";
                 if ($logindansbd == $login) {
-                    echo js("alert('Ce login existe déjà')");
+                    js("alert('Ce login existe déjà')");
                 } else {
                     $insert = "Insert into compte
                                 Values 
@@ -99,8 +99,9 @@ include('fonctions.php')
                         echo (mysqli_error($db));
                 }
             }
-        } else
+        } else {
             js("alert('Au moins un champ est vide')");
+        }
     }
     ?>
 
