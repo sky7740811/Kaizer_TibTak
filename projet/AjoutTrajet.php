@@ -1,4 +1,5 @@
 <?php
+//Ceci est un test
 session_start();
 include('fonctions.php');
 $login = customHeader("Covoiturage", "base.css");
