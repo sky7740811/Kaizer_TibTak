@@ -155,7 +155,7 @@ function customHeader($title, $css) {
     echo '<p class="sous-titre">';
     echo 'Bonjour, ' . $login;
     echo '</p>';
-    echo '<div id="centre>';
+    echo '<div id="centre">';
     echo '<div id="navigation">';
     verifadmin($login);
     echo '</div><!-- #navigation -->';
