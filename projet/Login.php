@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Covoiturage</title></head>
+        <title>Login</title></head>
     <link rel="stylesheet" type="text/css" href="base.css" media="all" />
     <body>
         <?php

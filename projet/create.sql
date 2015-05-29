@@ -13,6 +13,7 @@ create table compte
     login VARCHAR(30),
     mdp VARCHAR(20),
     argent int(4),
+    photo varchar(50) DEFAULT NULL,
     isAdmin BOOLEAN NOT NULL default 0,
     PRIMARY KEY(id_c)
 );
@@ -63,10 +64,12 @@ create table participe
     FOREIGN KEY(id_t) REFERENCES trajet(id_t)
 );
 
+INSERT INTO `compte` (`id_c`, `nom`, `prenom`, `datenaissance`, `login`, `mdp`, `argent`, `photo`, `isAdmin`) VALUES
+(1, 'admin', 'admin', '070694', 'admin', 'admin', 0, 'default.png', 1);
+
 insert into ville values(NULL,'Troyes','Aube');
 insert into ville values(NULL,'Reims','Aube');
 insert into ville values(NULL,'Paris','Paris');
 insert into ville values(NULL,'Clermont-Ferrand','Puy-de-Dome');
-
 insert into compte values(NULL,'admin','admin','070694','admin','admin',0,'1');
     

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('fonctions.php');
-$login = customHeader('Liste des trajets');
+$login = customHeader("Modification des informations personnelles");
 include('connect.php');
 ?>
 

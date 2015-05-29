@@ -1,36 +1,15 @@
-<?php session_start(); ?>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Covoiturage</title></head>
-    <link rel="stylesheet" type="text/css" href="base.css" media="all" />
-    <body>
+<?php
+session_start();
+include('fonctions.php');
+$login = customHeader("Préparation d'un trajet");
+include('connect.php');
+?>
 
-        <?php
-        include('fonctions.php');
-        $login = $_SESSION['login'];
-        login($login);
-        ?>
-        <div id="global">
-            <div id="entete">
+<?php
+include('connect.php');
 
-                <a href='accueil.php'><img src='accueil.png' height='30'></a>
-
-
-                <p class="sous-titre">
-                    <?php echo ("Bonjour, $login"); ?>
-                </p>    
-                <div id="centre">   
-                    <div id="navigation">
-                        <?php verifadmin($login); ?>
-                    </div><!-- #navigation -->
-                    <div id="contenu">
-
-                        <?php
-                        include('connect.php');
-
-                        //Verification d'existence de ses trajets
-                        $select1 = "select  ville1.nom as Ville_Depart,
+//Verification d'existence de ses trajets
+$select1 = "select  ville1.nom as Ville_Depart,
                                     ville2.nom as Ville_Arrivee,
                                     trajet.date_dep, 
                                     trajet.heure_dep, 
@@ -47,30 +26,18 @@
                                         vehicule.id_c = compte.id_c and
                                         trajet.isEffectue = 0 
                             "
-                        ;
+;
 
-                        $resultat1 = mysqli_query($db, $select1);
-                        if (!$resultat1)
-                            echo (mysqli_error($db));
+$resultat1 = mysqli_query($db, $select1);
+if (!$resultat1)
+    echo (mysqli_error($db));
 
-                        $tab1 = array();
+$tab1 = array();
 
-                        while ($row = mysqli_fetch_assoc($resultat1)) {
-                            $tab1[] = $row;
-                        }
+while ($row = mysqli_fetch_assoc($resultat1)) {
+    $tab1[] = $row;
+}
 
-                        PreparerTrajet($tab1);
-                        ?>
-
-                    </div><!-- #contenu -->
-                </div><!-- #centre -->
-
-                <div id="pied">
-                    <p id="copyright">
-                        Mise en page &copy; 2015
-                        Chihoon Lee, Thibault Neulat
-                    </p>
-                </div><!-- #pied -->
-            </div><!--#global-->
-    </body>
-</html>
+PreparerTrajet($tab1);
+?>
+<?php customFooter() ?>

@@ -7,7 +7,7 @@ function login($login) {
 }
 
 function action($method, $action) {
-    echo "<form method='" . $method . "' action='" . $action . "'>";
+    echo "<form method='" . $method . "' action='" . $action . "' enctype='multipart/form-data'>";
 }
 
 function js($text) {
