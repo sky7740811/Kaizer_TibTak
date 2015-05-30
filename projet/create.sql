@@ -67,7 +67,6 @@ create table participe
 INSERT INTO `compte` (`id_c`, `nom`, `prenom`, `datenaissance`, `login`, `mdp`, `argent`, `photo`, `isAdmin`) VALUES
 (1, 'admin', 'admin', '070694', 'admin', 'admin', 0, 'default.png', 1);
 
-insert into compte values(NULL,'admin','admin','070694','admin','admin',0,'1');
 
 insert into ville values(NULL,'Bourg-en-Bresse','Ain');
 insert into ville values(NULL,'Belley','Ain');
