@@ -14,6 +14,7 @@ include('connect.php');
 $select0 = "
                                     select nom
                                     from ville
+                                    order by nom
                                 "
 ;
 $list_ville = mysqli_query($db, $select0);
