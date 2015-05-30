@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include('fonctions.php');
 $login = customHeader("Ajout d'un trajet");
@@ -28,7 +29,8 @@ if (empty($tab)) { //utilisateur a jamais enregistrer son vehicule
 
     //Liste ville
     $select2 = " select nom
-                                     from ville;
+                                     from ville
+                                     order by nom;
                                    "
     ;
     $result_select2 = mysqli_query($db, $select2);
@@ -50,7 +52,7 @@ if (empty($tab)) { //utilisateur a jamais enregistrer son vehicule
                                 <select name='ville_dep'>";
     listVille($tab_ville);
     echo "
-                                <label>Ville d'arrivé</label>
+                                <label>Ville d'arrivée</label>
                                 <select name='ville_arriv'>";
     listVille($tab_ville);
     echo "
@@ -91,6 +93,7 @@ if (empty($tab)) { //utilisateur a jamais enregistrer son vehicule
                                                             select id_ville
                                                             from ville
                                                             where nom='" . $ville_dep . "'
+                                                            order by nom
                                                         "
                 ;
 
@@ -98,6 +101,7 @@ if (empty($tab)) { //utilisateur a jamais enregistrer son vehicule
                                                             select id_ville
                                                             from ville
                                                             where nom='" . $ville_arriv . "'
+                                                            order by nom
                                                         "
                 ;
 
