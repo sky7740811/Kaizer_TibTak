@@ -90,21 +90,19 @@ include('fonctions.php')
             } else {
                 $error_msg .= "Vous devez indiquer deux mots de passe identiques.<br />\n";
             }
-            
-            if (isset($_FILES['photo'])) {
+
+            if (isset($_FILES['photo']) && !empty($_FILES['photo']["tmp_name"])) {
                 $target_dir = "./images/";
                 $target_file = $target_dir . basename($_FILES['photo']["name"]);
                 $uploadOk = 1;
                 $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-
-                if (isset($_POST["submit"])) {
-                    $check = getimagesize($_FILES['photo']["tmp_name"]);
-                    if ($check !== false) {
-                        $uploadOk = 1;
-                    } else {
-                        $error_msg .= "Photo : Ce fichier n'est pas une image.<br />\n";
-                        $uploadOk = 0;
-                    }
+                
+                $check = getimagesize($_FILES['photo']["tmp_name"]);
+                if ($check !== false) {
+                    $uploadOk = 1;
+                } else {
+                    $error_msg .= "Photo : Ce fichier n'est pas une image.<br />\n";
+                    $uploadOk = 0;
                 }
 
                 if ($_FILES['photo']["size"] > 500000) {
@@ -131,7 +129,7 @@ include('fonctions.php')
             } else {
                 $nomphoto = 'default.png';
             }
-            
+
             if ($error_msg == "") {
                 $insert = "Insert into compte
                                 Values 
