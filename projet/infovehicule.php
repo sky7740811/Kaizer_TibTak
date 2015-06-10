@@ -104,7 +104,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Valider') {
             ;
             $resultat_insert = mysqli_query($db, $insert);
             if ($resultat_insert) {
-                js("alert('Insert successful')");
+                js("alert('V\éhicule ajout\é')");
                 js("document.location.href = 'accueil.php'");
             } else
                 echo (mysqli_error($db));
@@ -123,7 +123,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == 'Valider') {
             ;
             $resultat_update = mysqli_query($db, $update);
             if ($resultat_update) {
-                js("alert('Update successful')");
+                js("alert('V\éhicule enregistr\é')");
                 js("document.location.href = 'accueil.php'");
             } else
                 echo (mysqli_error($db));

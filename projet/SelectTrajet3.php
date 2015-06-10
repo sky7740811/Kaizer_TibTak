@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
                                       "
         ;
         $resultat1 = mysqli_query($db, $update);
-        js("alert('Reservation Effectuee')");
+        js("alert('R\éservation Effectu\ée')");
         js("document.location.href = 'accueil.php'");
     }
 }

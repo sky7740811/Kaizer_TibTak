@@ -23,7 +23,7 @@ $tab = mysqli_fetch_array($resultat);
 
 
 if (empty($tab)) { //utilisateur a jamais enregistrer son vehicule
-    js("alert('Veuillez d abord enregistrer votre vehicule')");
+    js("alert('Veuillez d abord enregistrer votre v\éhicule')");
     js("document.location.href = 'infovehicule.php'");
 } else {
 
@@ -137,7 +137,7 @@ if (empty($tab)) { //utilisateur a jamais enregistrer son vehicule
                 if (!$result_insert)
                     echo (mysqli_error($db));
                 else {
-                    js("alert('Insert successful')");
+                    js("alert('Trajet ajout\é')");
                     js("document.location.href = 'accueil.php'");
                 }
             }

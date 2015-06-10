@@ -31,7 +31,7 @@ $resultat1 = mysqli_query($db, $select1);
 $tab1 = mysqli_fetch_array($resultat1);
 
 if ($tab1[0] == $login) {
-    js("alert('Vous ne pouvez pas choisir le trajet effectu\é vous-même')");
+    js("alert('Vous ne pouvez pas choisir le trajet ajout\é vous-m\ême')");
     js("document.location.href = 'SelectTrajet.php'");
 } else {
     //Recuperer toutes les info sur le trajet choisi

@@ -148,7 +148,7 @@ include('fonctions.php')
 
                 if ($resultat_insert) {
                     setcookie('error_msg', "");
-                    js("alert('Compte créé.')");
+                    js("alert('Votre compte a \ét\é cr\éé.')");
                     js("document.location.href = 'Login.php'");
                 } else
                     echo (mysqli_error($db));
