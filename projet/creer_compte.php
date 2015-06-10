@@ -140,7 +140,7 @@ include('fonctions.php')
                                     '" . $datenaissance . "',
                                     '" . $login . "',
                                     '" . $mdp . "',
-                                    '0',
+                                    '100',
                                     '" . $nomphoto . "',
                                     ''
                                 )";

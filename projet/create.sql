@@ -323,7 +323,7 @@ insert into ville values(NULL,'Albertville','Savoie');
 insert into ville values(NULL,'Saint-Jean-de-Maurienne','Savoie');
 insert into ville values(NULL,'Annecy','Haute-Savoie');
 insert into ville values(NULL,'Bonneville','Haute-Savoie');
-insert into ville values(NULL,'Ssaint-Julien-en-Genevois','Haute-Savoie');
+insert into ville values(NULL,'Saint-Julien-en-Genevois','Haute-Savoie');
 insert into ville values(NULL,'Thonon-les-Bains','Haute-Savoie');
 insert into ville values(NULL,'Paris','Paris');
 insert into ville values(NULL,'Rouen','Seine-Maritime');

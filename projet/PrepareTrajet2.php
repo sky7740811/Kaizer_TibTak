@@ -38,7 +38,6 @@ $count = "select count(participe.id_passager)
 ;
 $result_count = mysqli_query($db, $count);
 $nbpassager = mysqli_fetch_array($result_count);
-echo $nbpassager[0]; //empty if il n'y a eu aucun passager
 if (empty($nbpassager)) {
     $nbre_passager = 0;
 } else {
@@ -65,6 +64,21 @@ if ($validOUsupprim == 'valid') {
                                 "
     ;
     $resultat_update1 = mysqli_query($db, $update1);
+    
+    $query_passagers = "select * from participe where id_t = '" . $id_t . "'";
+    $query_result = mysqli_query($db, $query_passagers);
+    $liste_passagers_participants = array();
+    while ($row = mysqli_fetch_assoc($query_result)) {
+        $liste_passagers_participants[] = $row;
+    }
+    
+    foreach($liste_passagers_participants as $passager) {
+        $update2 = "update compte set
+                                argent = argent - " . $prix . "
+                                where id_c = " . $passager["id_passager"];
+        $resultat_update2 = mysqli_query($db, $update2);
+    }
+    
     js("alert('Trajet Valid\é')");
     js("document.location.href = 'accueil.php'");
 } else {
@@ -79,20 +93,20 @@ if ($validOUsupprim == 'valid') {
     ;
     $resultat_update0 = mysqli_query($db, $update0);
 
-
-    $update1 = "   update compte set
-                                    argent = argent + 10
-                                    where id_c in   (  select id_passager
-                                                        from participe
-                                                        where id_t in   (   select id_t
-                                                                            from trajet
-                                                                            where id_t  = '" . $id_t . "'
-                                                                        )
-                                                    )
-                                "
-    ;
-    $resultat_update1 = mysqli_query($db, $update1);
-
+    $query_passagers = "select * from participe where id_t = '" . $id_t . "'";
+    $query_result = mysqli_query($db, $query_passagers);
+    $liste_passagers_participants = array();
+    while ($row = mysqli_fetch_assoc($query_result)) {
+        $liste_passagers_participants[] = $row;
+    }
+    
+    foreach($liste_passagers_participants as $passager) {
+        $update2 = "update compte set
+                                argent = argent + 10
+                                where id_c = " . $passager["id_passager"];
+        $resultat_update2 = mysqli_query($db, $update2);
+    }
+    
     $delete1 = "   delete from participe 
                                     where id_t = '" . $id_t . "'
                                 "

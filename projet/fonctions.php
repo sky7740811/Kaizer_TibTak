@@ -160,11 +160,16 @@ function customHeader($title) {
         $_SESSION['photo'] = $photo;
     }
     else $photo = $_SESSION['photo'];
+    $argent = "select distinct argent from compte where login='" . $login . "'";
+    $resultat = mysqli_query($db, $argent);
+    $tab = mysqli_fetch_array($resultat);
+    $argent = $tab[0];
     echo "<div id='global'>";
     echo "<div id='entete'>";
     echo "<a href='accueil.php'><img src='accueil.png' height='30'></a>";
     echo "<p class='sous-titre'>";
-    echo "Bonjour, " . $login;
+    echo "Bonjour " . $login . "<br />";
+    echo "Vous possédez " . $argent . "€.";
     echo "</p>";
     echo "<img src='images/" . $photo . "' height='128'>";
     echo "</div><!--#entete-->\n";
