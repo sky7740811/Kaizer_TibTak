@@ -22,6 +22,11 @@ while ($ligne = mysqli_fetch_assoc($list_ville)) {
     $tab_ville[] = $ligne['nom'];
 }
 
+$select_id_compte = "select id_c from compte where login = '" . $login . "'";
+$resultat_id_compte = mysqli_query($db, $select_id_compte);
+$tab = mysqli_fetch_array($resultat_id_compte);
+$id_compte = $tab[0];
+
 action('post', 'SelectTrajet.php');
 echo ("<fieldset style= margin : auto>");
 echo ("<legend>Rechercher par critères</legend>");
@@ -71,7 +76,7 @@ if (isset($_POST['recherche'])) {
         $select2 = "select  ville1.nom as Ville_Depart,
                                         ville2.nom as Ville_Arrivee,
                                         compte.nom, 
-                                        compte.prenom, 
+                                        compte.prenom,
                                         trajet.date_dep, 
                                         trajet.heure_dep, 
                                         trajet.nb_place_dispo, 
@@ -84,6 +89,7 @@ if (isset($_POST['recherche'])) {
                                         join ville ville1 on trajet.ville_dep = ville1.id_ville
                                         join ville ville2 on trajet.ville_arriv = ville2.id_ville
                                         where   trajet.id_conducteur = compte.id_c and 
+                                        not trajet.id_conducteur = '" . $id_compte . "' and
                                         vehicule.id_c = compte.id_c and
                                         trajet.isEffectue = 0 and
                                         trajet.nb_place_dispo > 0 " 

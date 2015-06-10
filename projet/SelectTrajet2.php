@@ -18,7 +18,7 @@ do {
     }
 } while (!isset($_POST["select" . $i]));
 include('connect.php');
-//verification si l'utilisateur participe son propre trajet
+/* //verification si l'utilisateur participe son propre trajet
 $select1 = "select login
                         from compte
                         where id_c in   (   select id_conducteur
@@ -33,7 +33,7 @@ $tab1 = mysqli_fetch_array($resultat1);
 if ($tab1[0] == $login) {
     js("alert('Vous ne pouvez pas choisir le trajet ajout\é vous-m\ême')");
     js("document.location.href = 'SelectTrajet.php'");
-} else {
+} else { */
     //Recuperer toutes les info sur le trajet choisi
     $select2 = "select  ville1.nom as Ville_Depart,
                                     ville2.nom as Ville_Arrivee,
@@ -75,7 +75,7 @@ if ($tab1[0] == $login) {
 
 
     header('location:SelectTrajet3.php');
-}
+// }
 ?>
 
 <?php customFooter() ?>
