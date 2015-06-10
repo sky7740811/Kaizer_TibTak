@@ -27,6 +27,7 @@ echo ("<fieldset style= margin : auto>");
 echo ("<legend>Rechercher par critères</legend>");
 echo ("<label>Ville Départ  </label>");
 echo ("<select name='ville_dep'>");
+echo "<option>(vide)</option>";
 foreach ($tab_ville as $ville) {
     echo "<option>$ville</option>";
 }
@@ -34,6 +35,7 @@ echo ("</select><p/>");
 
 echo ("<label>Ville Arrivée </label>");
 echo ("<select name='ville_arriv'>");
+echo "<option>(vide)</option>";
 foreach ($tab_ville as $ville) {
     echo "<option>$ville</option>";
 }
@@ -44,14 +46,26 @@ echo ("<input type='text' name='date_dep'/><p/>");
 echo ("<input type='submit' name='recherche' value='Rechercher'/>");
 echo("</form></fieldset>");
 
-if (isset($_POST['submit'])) {
-    if ($_POST['ville_dep'] == $_POST['ville_arriv']) {
+if (isset($_POST['recherche'])) {
+    if ($_POST['ville_dep'] == "(vide)" && $_POST['ville_arriv'] == "(vide)") {
+        js("alert('Veuillez sélectionner au moins une ville de départ et/ou une ville d\'arrivée')");
+        js("document.location.href = 'SelectTrajet.php'");
+    }
+    else if ($_POST['ville_dep'] == $_POST['ville_arriv']) {
         js("alert('La ville de départ et la ville d\'arrivée doivent être différentes')");
         js("document.location.href = 'SelectTrajet.php'");
     } else {
         $date_dep = '';
+        $ville_dep = '';
+        $ville_arriv = '';
         if (!empty($_POST['date_dep'])) {
             $date_dep = " and trajet.date_dep = '" . $_POST['date_dep'] . "'";
+        }
+        if ($_POST['ville_dep'] != '(vide)') {
+            $ville_dep = " and ville1.nom = '" . $_POST['ville_dep'] . "'";
+        }
+        if ($_POST['ville_arriv'] != '(vide)') {
+            $ville_arriv = " and ville2.nom = '" . $_POST['ville_arriv'] . "'";
         }
 
         $select2 = "select  ville1.nom as Ville_Depart,
@@ -72,12 +86,10 @@ if (isset($_POST['submit'])) {
                                         where   trajet.id_conducteur = compte.id_c and 
                                         vehicule.id_c = compte.id_c and
                                         trajet.isEffectue = 0 and
-                                        trajet.nb_place_dispo > 0 and
-                                        ville1.nom = '" . $_POST['ville_dep'] . "' and
-                                        ville2.nom = '" . $_POST['ville_arriv'] . "'"
-                . $date_dep . "
-                                    "
-        ;
+                                        trajet.nb_place_dispo > 0 " 
+                                        . $ville_dep 
+                                        . $ville_arriv 
+                                        . $date_dep . "";
 
         $resultat2 = mysqli_query($db, $select2);
         if (!$resultat2)
