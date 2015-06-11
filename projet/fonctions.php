@@ -128,13 +128,15 @@ function donnerNotes($tab_notes) {
                     <th>Personne à noter</th>
                 </tr>";
     
-    foreach ($tab_notes as $personne) {
+    foreach ($tab_notes as $key => $personne) {
+        
+        var_dump($key);
         echo "<tr>
                 <td>" . $personne['ville_dep'] . "</td>
                 <td>" . $personne['ville_arriv'] . "</td>
                 <td>" . $personne['date_dep'] . " à " . $personne['heure_dep'] . "h</td>
                 <td>" . $personne['prenom'] . " " . $personne['nom'] . "</td>
-                <td><input type = 'submit' name ='noter' value='Noter'/>
+                <td><input type = 'submit' name ='noter" . $key . "' value='Noter'/>
                 </tr>";
     }
     echo "</table></form>";
