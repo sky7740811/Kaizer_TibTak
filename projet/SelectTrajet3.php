@@ -47,27 +47,44 @@ echo "<label>Je réserve</label><br/>";
 echo "<select name='reserve'>";
 for ($i = 1; $i <= $_SESSION['place']; $i++) {
     if ($i == 1) {
-        echo "<option>" . $i . " place</option>";
+        echo "<option>" . $i . "</option>";
     } else
-        echo "<option>" . $i . " places</option>";
+        echo "<option>" . $i . "</option>";
 }
-echo "</select><p/>";
+echo "</select> place(s)<p/>";
 echo "<input type='submit' name='submit' value='Valider'/></form><p/>";
 
 if (isset($_POST['submit'])) {
     if (isset($_POST['reserve'])) {
+        
+        $select_participe = "select * from participe where id_t = " . $_SESSION['id_t'] . " and id_passager = " . $id_c[0];
 
-        $insert = "insert into participe values(
+        $resultat_participe = mysqli_query($db, $select_participe);
+        if (!$resultat_participe)
+            echo (mysqli_error($db));
+        $tab = array();
+        $tab = mysqli_fetch_array($resultat_participe);
+        $participe = $tab[0];
+
+        if ($participe == NULL || !isset($participe) || $participe = '') {
+            $insert = "insert into participe values(
                                     '" . $_SESSION['id_t'] . "',
+                                    '" . $_POST['reserve'] . "',
                                     '" . $id_c[0] . "'
                                     )                        
-                                    "
-        ;
+                                    ";
 
-
-        for ($j = 0; $j < $_POST['reserve']; $j++) {
             $resultat = mysqli_query($db, $insert);
+        } else {
+            $update_participe = "update participe set 
+                                    nb_places = nb_places + " . $_POST['reserve'] . "
+                                    where id_t = " . $_SESSION['id_t'] . "
+                                    and id_passager = " . $id_c[0];
+            
+            $resultat = mysqli_query($db, $update_participe);
         }
+
+
         //Additionner la somme d'argent gagner par conducteur
         /*   $prix = ($_POST['reserve'] * $_SESSION['prix']);
           $update0 = "update compte set

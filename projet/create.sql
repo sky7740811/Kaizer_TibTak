@@ -61,6 +61,7 @@ create table participe
     id_t int(11) NOT NULL,
     id_passager int(11) NOT NULL,
     FOREIGN KEY(id_passager) REFERENCES compte(id_c),
+    nb_places int(11),
     FOREIGN KEY(id_t) REFERENCES trajet(id_t)
 );
 
