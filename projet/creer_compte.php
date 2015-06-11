@@ -142,7 +142,8 @@ include('fonctions.php')
                                     '" . $mdp . "',
                                     '100',
                                     '" . $nomphoto . "',
-                                    ''
+                                    '',
+                                    NULL
                                 )";
                 $resultat_insert = mysqli_query($db, $insert);
 

@@ -15,6 +15,7 @@ create table compte
     argent int(4),
     photo varchar(50) DEFAULT NULL,
     isAdmin BOOLEAN NOT NULL default 0,
+    appreciation int(4) DEFAULT NULL,
     PRIMARY KEY(id_c)
 );
 
@@ -63,6 +64,19 @@ create table participe
     FOREIGN KEY(id_passager) REFERENCES compte(id_c),
     nb_places int(11),
     FOREIGN KEY(id_t) REFERENCES trajet(id_t)
+);
+
+create table notes
+(
+    id_note int(11) NOT NULL auto_increment,
+    note float(4) DEFAULT NULL,
+    id_donneur int(11) NOT NULL,
+    FOREIGN KEY(id_donneur) REFERENCES compte(id_c),
+    id_receveur int(11) NOT NULL,
+    FOREIGN KEY(id_receveur) REFERENCES compte(id_c),
+    id_trajet int(11) NOT NULL,
+    FOREIGN KEY(id_trajet) REFERENCES trajet(id_t),
+    PRIMARY KEY(id_note)
 );
 
 INSERT INTO `compte` (`id_c`, `nom`, `prenom`, `datenaissance`, `login`, `mdp`, `argent`, `photo`, `isAdmin`) VALUES

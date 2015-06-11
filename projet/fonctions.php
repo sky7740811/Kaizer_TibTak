@@ -118,6 +118,28 @@ function PreparerTrajet($tab1) {
     echo "</table></form>";
 }
 
+function donnerNotes($tab_notes) {
+    action('post', 'DonnerNotes.php');
+    echo "<table border=1>
+                <tr>
+                    <th>Ville de départ</th>
+                    <th>Ville d'arrivée</th>
+                    <th>Date et heure de départ</th>
+                    <th>Personne à noter</th>
+                </tr>";
+    
+    foreach ($tab_notes as $personne) {
+        echo "<tr>
+                <td>" . $personne['ville_dep'] . "</td>
+                <td>" . $personne['ville_arriv'] . "</td>
+                <td>" . $personne['date_dep'] . " à " . $personne['heure_dep'] . "h</td>
+                <td>" . $personne['prenom'] . " " . $personne['nom'] . "</td>
+                <td><input type = 'submit' name ='noter' value='Noter'/>
+                </tr>";
+    }
+    echo "</table></form>";
+}
+
 function comptepassagers() {
     
 }

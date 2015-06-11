@@ -84,6 +84,18 @@ if ($validOUsupprim == 'valid') {
                                 argent = argent - " . $prix_passager . "
                                 where id_c = " . $passager["id_passager"];
         $resultat_update2 = mysqli_query($db, $update2);
+        
+        $insert_passager_conducteur = "insert into notes values('', NULL, " . $passager["id_passager"] . ", (select id_conducteur
+                                                from trajet
+                                                where id_t = '" . $id_t . "'
+                                                ), " . $id_t . ")";
+        $resultat_insert_passager_conducteur = mysqli_query($db, $insert_passager_conducteur);
+        
+        $insert_conducteur_passager = "insert into notes values('', NULL, (select id_conducteur
+                                                from trajet
+                                                where id_t = '" . $id_t . "'
+                                                ), " . $passager["id_passager"] . ", " . $id_t . ")";
+        $resultat_insert_conducteur_passager = mysqli_query($db, $insert_conducteur_passager);
     }
     
     js("alert('Trajet Valid\é')");
