@@ -129,8 +129,6 @@ function donnerNotes($tab_notes) {
                 </tr>";
     
     foreach ($tab_notes as $key => $personne) {
-        
-        var_dump($key);
         echo "<tr>
                 <td>" . $personne['ville_dep'] . "</td>
                 <td>" . $personne['ville_arriv'] . "</td>
