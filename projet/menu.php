@@ -8,7 +8,7 @@ function menu() {
         <li><a href="DonnerNotes.php">Donner des appréciations</a></li>
         <li><a href="SelectTrajet.php">Sélectionner un trajet</a></li>
         <li><a href="PrepareTrajet.php">Préparation des trajet</a></li>
-        <a href="deconnexion.php">Déconnexion</a>
+        <li><a href="deconnexion.php">Déconnexion</a></li>
         </ul>';
 }
 
@@ -22,7 +22,7 @@ function menu_admin() {
         <li><a href="DonnerNotes.php">Donner des appréciations</a></li>
         <li><a href="SelectTrajet.php">Sélectionner un trajet</a></li>
         <li><a href="PrepareTrajet.php">Préparation des trajet</a></li>
-        <a href="deconnexion.php">Déconnexion</a>
+        <li><a href="deconnexion.php">Déconnexion</a></li>
         </ul>';
 }
 

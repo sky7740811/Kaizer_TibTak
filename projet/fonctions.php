@@ -61,7 +61,7 @@ function listVille($tab) {
 
 function listTrajet($tab1) {
     action('post', 'SelectTrajet2.php');
-    echo "<table border=1>
+    echo "<table>
                 <tr>
                     <th>Nom de conducteur</th>
                     <th>Ville Départ</th>
@@ -91,13 +91,14 @@ function listTrajet($tab1) {
 
 function PreparerTrajet($tab1) {
     action('post', 'PrepareTrajet2.php');
-    echo "<table border=1>
+    echo "<table>
                 <tr>
                     <th>Ville Départ</th>
                     <th>Ville Arrivée</th>
                     <th>Date départ</th>
                     <th>Nombre de places disponibles</th>
-                    <th>prix</th>
+                    <th>Prix</th>
+                    <th>Participant</th>
                     <th></th>
                 </tr>";
 
@@ -111,6 +112,7 @@ function PreparerTrajet($tab1) {
                 <td>" . $tab1[$key]['date_dep'] . " à " . $tab1[$key]['heure_dep'] . "h</td>
                 <td>" . ($tab1[$key]['nb_place_dispo']) . "</td>
                 <td>" . $tab1[$key]['prix'] . "</td>
+                <td></td>
                 <td><input type = 'submit' name ='valider" . $key . "' value='Valider'/>
                 <input type = 'submit' name ='supprimer" . $key . "' value='Supprimer'/></td>
                 </tr>";
@@ -120,7 +122,7 @@ function PreparerTrajet($tab1) {
 
 function donnerNotes($tab_notes) {
     action('post', 'DonnerNotes2.php');
-    echo "<table border=1>
+    echo "<table>
                 <tr>
                     <th>Nom de conducteur</th>
                     <th>Ville de départ</th>
@@ -173,6 +175,8 @@ function customHeader($title) {
     echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />\n";
     echo "<title>" . $title . "</title>\n";
     echo "<link rel='stylesheet' type='text/css' href='base.css' media='all' />\n";
+//    echo "<link rel='stylesheet' type='text/css' href='modele.css' media='all' />\n";
+    //echo "<link rel='stylesheet' type='text/css' href='default.css' media='all' />\n";
     echo "</head>\n";
     
     echo "<body>\n";
@@ -198,7 +202,7 @@ function customHeader($title) {
    
     echo "<div id='global'>";
     echo "<div id='entete'>";
-    echo "<a href='accueil.php'><img src='accueil.png' height='30'></a>";
+    echo "<a href='accueil.php'><img src='accueil.png' height='20'></a>";
     echo "<p class='sous-titre'>";
     echo "Bonjour " . $login . "<br />";
     echo "Vous possédez " . $argent . "€.<br/>";
@@ -209,7 +213,7 @@ function customHeader($title) {
         echo "Vous n'avez reçu aucune appréciation.";
     }
     echo "</p>";
-    echo "<img src='images/" . $photo . "' height='128'>";
+    echo "<img id='photo' src='images/" . $photo . "' height='80'>";
     echo "</div><!--#entete-->\n";
     echo "<div id='centre'>";
     echo "<div id='navigation'>";

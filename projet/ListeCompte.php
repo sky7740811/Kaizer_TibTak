@@ -16,7 +16,7 @@ while ($row = mysqli_fetch_assoc($resultat)) {
     $tab1[] = $row;
 }
 
-echo "<table border=1>
+echo "<table>
         <tr>
             <th>Numero de compte</th>
             <th>Nom</th>
