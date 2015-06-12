@@ -190,12 +190,24 @@ function customHeader($title) {
     $resultat = mysqli_query($db, $argent);
     $tab = mysqli_fetch_array($resultat);
     $argent = $tab[0];
+    
+    $note = "select distinct appreciation from compte where login = '" . $login . "'";
+    $resultat2 = mysqli_query($db, $note);
+    $tab2 = mysqli_fetch_array($resultat2);
+    $note = $tab2[0];
+   
     echo "<div id='global'>";
     echo "<div id='entete'>";
     echo "<a href='accueil.php'><img src='accueil.png' height='30'></a>";
     echo "<p class='sous-titre'>";
     echo "Bonjour " . $login . "<br />";
-    echo "Vous possédez " . $argent . "€.";
+    echo "Vous possédez " . $argent . "€.<br/>";
+    if(!empty($note)) {
+        echo "Votre appréciation moyenne est de " . $note ." sur 5.";
+    }
+    else {
+        echo "Vous n'avez reçu aucune appréciation.";
+    }
     echo "</p>";
     echo "<img src='images/" . $photo . "' height='128'>";
     echo "</div><!--#entete-->\n";
