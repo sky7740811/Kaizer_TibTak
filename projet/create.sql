@@ -16,7 +16,7 @@ create table compte
     argent int(4),
     photo varchar(50) DEFAULT NULL,
     isAdmin BOOLEAN NOT NULL default 0,
-    appreciation int(4) DEFAULT NULL,
+    appreciation float(4) DEFAULT NULL,
     PRIMARY KEY(id_c)
 );
 

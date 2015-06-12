@@ -131,6 +131,7 @@ function donnerNotes($tab_notes) {
     
     foreach ($tab_notes as $key => $personne) {
         echo "<input type='hidden' name='id_c" . $key . "' value = '" . $personne['id_receveur'] . "'/>";
+        echo "<input type='hidden' name='id_t" . $key . "' value = '" . $personne['id_trajet'] . "'/>";
         echo "<tr>
                 <td>" . $personne['prenom_c'] . " " . $personne['nom_c'] . "</td>
                 <td>" . $personne['ville_dep'] . "</td>
