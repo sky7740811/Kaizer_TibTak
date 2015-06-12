@@ -122,6 +122,7 @@ function donnerNotes($tab_notes) {
     action('post', 'DonnerNotes.php');
     echo "<table border=1>
                 <tr>
+                    <th>Nom de conducteur</th>
                     <th>Ville de départ</th>
                     <th>Ville d'arrivée</th>
                     <th>Date et heure de départ</th>
@@ -130,6 +131,7 @@ function donnerNotes($tab_notes) {
     
     foreach ($tab_notes as $key => $personne) {
         echo "<tr>
+                <td>" . $personne['prenom_c'] . " " . $personne['nom_c'] . "</td>
                 <td>" . $personne['ville_dep'] . "</td>
                 <td>" . $personne['ville_arriv'] . "</td>
                 <td>" . $personne['date_dep'] . " à " . $personne['heure_dep'] . "h</td>

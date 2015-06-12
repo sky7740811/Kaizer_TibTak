@@ -17,14 +17,17 @@ $select_notes_restantes = "select
                                     ville2.nom as ville_arriv,
                                     trajet.date_dep as date_dep,
                                     trajet.heure_dep as heure_dep,
-                                    compte.nom as nom,
-                                    compte.prenom as prenom
+                                     compte.nom as nom,
+                                    compte.prenom as prenom,
+                                    compte2.nom as nom_c,
+                                    compte2.prenom as prenom_c
                                     
                                     from notes, compte, trajet
                                     join ville ville1 on trajet.ville_dep = ville1.id_ville
                                     join ville ville2 on trajet.ville_arriv = ville2.id_ville
-                                    where id_donneur in (select id_c from compte where login = '" . $login . "')
-                                    and compte.id_c = id_receveur
+                                    join compte compte2 on trajet.id_conducteur = compte2.id_c
+                                    where id_donneur in (select id_c from compte where login = '".$login."')
+                                    and compte.id_c = notes.id_receveur
                                     and notes.note IS NULL";
 
 $resultat_notes_restantes = mysqli_query($db, $select_notes_restantes);
