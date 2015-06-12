@@ -17,7 +17,7 @@ $select_notes_restantes = "select
                                     ville2.nom as ville_arriv,
                                     trajet.date_dep as date_dep,
                                     trajet.heure_dep as heure_dep,
-                                     compte.nom as nom,
+                                    compte.nom as nom,
                                     compte.prenom as prenom,
                                     compte2.nom as nom_c,
                                     compte2.prenom as prenom_c
@@ -28,6 +28,7 @@ $select_notes_restantes = "select
                                     join compte compte2 on trajet.id_conducteur = compte2.id_c
                                     where id_donneur in (select id_c from compte where login = '".$login."')
                                     and compte.id_c = notes.id_receveur
+                                    and trajet.isEffectue = 1
                                     and notes.note IS NULL";
 
 $resultat_notes_restantes = mysqli_query($db, $select_notes_restantes);
