@@ -13,9 +13,11 @@ session_start();
         if (empty($_SESSION['login'])) {
             js("alert('Veuillez saisir votre identifiant')");
             js("document.location.href = 'Login.php'");
+            session_destroy();
         } elseif (empty($_SESSION['mdp'])) {
             js("alert('Veuillez saisir votre mot de passe')");
             js("document.location.href = 'Login.php'");
+            session_destroy();
         } else {
             include('connect.php');
             $login = $_SESSION['login'];
