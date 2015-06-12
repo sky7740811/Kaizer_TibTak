@@ -1,3 +1,4 @@
+drop table if exists notes;
 drop table if exists participe;
 drop table if exists vehicule;
 drop table if exists trajet;
