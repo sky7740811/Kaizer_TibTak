@@ -28,6 +28,7 @@ $select_notes_restantes = "select
                                     join compte compte2 on trajet.id_conducteur = compte2.id_c
                                     where id_donneur in (select id_c from compte where login = '".$login."')
                                     and compte.id_c = notes.id_receveur
+                                    and notes.id_trajet = trajet.id_t
                                     and trajet.isEffectue = 1
                                     and notes.note IS NULL";
 

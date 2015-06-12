@@ -119,7 +119,7 @@ function PreparerTrajet($tab1) {
 }
 
 function donnerNotes($tab_notes) {
-    action('post', 'DonnerNotes.php');
+    action('post', 'DonnerNotes2.php');
     echo "<table border=1>
                 <tr>
                     <th>Nom de conducteur</th>
@@ -130,6 +130,7 @@ function donnerNotes($tab_notes) {
                 </tr>";
     
     foreach ($tab_notes as $key => $personne) {
+        echo "<input type='hidden' name='id_c" . $key . "' value = '" . $personne['id_receveur'] . "'/>";
         echo "<tr>
                 <td>" . $personne['prenom_c'] . " " . $personne['nom_c'] . "</td>
                 <td>" . $personne['ville_dep'] . "</td>
