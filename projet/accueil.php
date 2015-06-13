@@ -5,6 +5,6 @@ include('fonctions.php');
 $login = customHeader('Accueil');
 include('connect.php');
 ?>
-<p>Bienvenue sur notre site covoiturage</p>
+<p style="text-align: center; font-size: 20px">Bienvenue sur notre site covoiturage</p>
 
 <?php customFooter() ?>

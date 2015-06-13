@@ -20,13 +20,12 @@ body {
     font-size: .8em; /* -> 4 */
     line-height: 1.25; /* -> 5 */
     color: black;
-    background: white;
+    background: #f7f7f7;
 }
 
 /*fieldset*/
 fieldset {
-    float: center;
-   
+   margin : auto;
     width: 400px;
     padding: 20px;
     border: none;
@@ -49,6 +48,7 @@ fieldset {
       color: #444;
       text-shadow: 0 1px 0 #fff;
     }
+    
 
 /* Titres */
 h1, h2, h3, h4, h5, h6 {
@@ -160,14 +160,23 @@ body {
 
 /* En-t�te */
 #entete {
-    padding: 20px 20px 20px 0;
+    padding: 0;
+    width: 90%;
 }
 #entete h1 {
     margin: 0;
 }
-#entete h1 img {
-    float: left;
-    margin: 7px 20px 10px 0;
+#accueil img  {
+    //float: top;
+    //7px 20px 10px 0;
+    margin : 0 auto;
+    height : 100px;
+    width: 500px;
+}
+
+#profil img {
+    float : left;
+    margin-right : 10px;
 }
 #entete .sous-titre {
     margin: 4px 0 15px 0;
@@ -175,8 +184,10 @@ body {
 
 /* Bloc central contenant #navigation et #contenu */
 #centre {
-    width: 100%; /* -> 5 */
+    width: 90%; /* -> 5 */
     overflow: hidden; /* -> 5 */
+    margin-top : 5%;
+    margin-bottom: 5%;
 }
 
 /* Menu de navigation */
@@ -202,7 +213,7 @@ body {
 #navigation {
 font-family: Verdana, Arial, Helvetica, sans-serif;
 font-size: 110%;
-width: 160px;
+width: 15%;
 padding: 0px;
 margin: 0px;
 float : left;
@@ -230,13 +241,13 @@ margin: 0px;
 padding: 0px;
 }
 #navigation ul li a {
-font-size: 80%;
+font-size: 90%;
 display: block;
 border-bottom: 1px dashed #C39C4E;
 padding: 5px 0px 2px 4px;
 text-decoration: none;
 color: #666666;
-width:160px;
+width:180px;
 }
 
 #navigation ul li a:hover, #vertmenu ul li a:focus {
@@ -246,12 +257,14 @@ background-color: #eeeeee;
 
 /* Contenu */
 #contenu {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 10%;
+    //margin-right: 20%;
     padding: 10px 10px;
+    width : 80%;
 }
 #contenu > :first-child {
     margin-top: 10px;
+    margin-bottom: 10%;
 }
 #contenu p, #contenu li {
     line-height: 1.5;
@@ -259,7 +272,7 @@ background-color: #eeeeee;
 
 /* Pied de page */
 #pied {
-    margin: 0;
+    margin-top : 5%;
     padding: 15px 20px 10px 0;
     font-size: .85em;
 }

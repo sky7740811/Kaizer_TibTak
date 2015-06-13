@@ -11,7 +11,7 @@
             header('location:accueil.php');
         }
         ?>
-        <fieldset style="margin: auto">
+        <fieldset style="margin-top: 10% ">
             <Legend>Identification</legend>
             <form method="post" action="verifcompte.php">
                 <label>Login</label>
@@ -22,7 +22,7 @@
                 <p/>
                 <input type="submit" value="Connexion"/>
                 <p/>
-                <a href="creer_compte.php">Creer un nouveau compte</a>
+                <a href="creer_compte.php">Créer un nouveau compte</a>
             </form>
         </fieldset>
 

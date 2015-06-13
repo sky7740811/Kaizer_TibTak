@@ -202,18 +202,18 @@ function customHeader($title) {
    
     echo "<div id='global'>";
     echo "<div id='entete'>";
-    echo "<a href='accueil.php'><img src='accueil.png' height='20'></a>";
+    echo "<div id='accueil'><a href='accueil.php'><img src='header.jpg'></a></div>";
     echo "<p class='sous-titre'>";
-    echo "Bonjour " . $login . "<br />";
-    echo "Vous possédez " . $argent . "€.<br/>";
+   
+    echo "<div id='profil'><img id='photo' src='images/" . $photo . "' height='80'></div>";
+    echo "<br />Bonjour " . $login . ",<br />";
+    echo "Vous possédez " . $argent . "€<br/>";
     if(!empty($note)) {
-        echo "Votre appréciation moyenne est de " . $note ." sur 5.";
+        echo "Votre appréciation moyenne est de " . $note ." sur 5";
     }
     else {
         echo "Vous n'avez reçu aucune appréciation.";
     }
-    echo "</p>";
-    echo "<img id='photo' src='images/" . $photo . "' height='80'>";
     echo "</div><!--#entete-->\n";
     echo "<div id='centre'>";
     echo "<div id='navigation'>";
