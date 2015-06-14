@@ -16,7 +16,7 @@ include('fonctions.php')
         }
         ?>
 
-        <h1 style="text-align: center;margin-top: 0px;">Créer votre compte</h1>
+        <h1 style="text-align: center;margin-top: 100px;">Créer votre compte</h1>
         <fieldset style="margin: auto;">
             <?php action("post", "creer_compte.php"); ?>
 

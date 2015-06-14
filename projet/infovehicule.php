@@ -43,7 +43,7 @@ if (empty($tab)) { //utilisateur a jamais enregistrer son vehicule
             <select name='nb_place'>";
     listNbPlace(9);
     echo "<p/>
-            <label>Année de remise</label>";
+            <label>Année de remise </label>";
     listannee(1980, 35, 0);
     echo "
             <input type='submit' name = 'submit' value='Valider'/>

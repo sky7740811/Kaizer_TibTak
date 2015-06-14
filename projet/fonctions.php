@@ -59,7 +59,7 @@ function listVille($tab) {
     echo "</select><p/>";
 }
 
-function listTrajet($tab1) {
+function listTrajet($tab1,$admin) {
     action('post', 'SelectTrajet2.php');
     echo "<table>
                 <tr>
@@ -68,23 +68,51 @@ function listTrajet($tab1) {
                     <th>Ville Arrivée</th>
                     <th>Date départ</th>
                     <th>Véhicule</th>
-                    <th>Nombre de places disponibles</th>
-                    <th>prix</th>
-                    <th></th>
-                </tr>";
-
+                    <th>Nombre de places disponibles</th>";
+                    if($admin==1) {
+                        echo "<th>Participant</th>";
+                    }
+                    echo "<th>prix</th>";
+                    if($admin==0) {
+                    echo "<th></th>";
+                    }
+                    echo "</tr>";
+                include('connect.php');
     foreach ($tab1 as $key => $value) {
         echo "<input type='hidden' name='id_t" . $key . "' value = '" . $tab1[$key]['id_t'] . "'/>";
+        $row = array();
+        $liste = array();
+        $select = "select compte.nom, compte.prenom, participe.nb_places from compte, participe where compte.id_c = participe.id_passager and participe.id_t = '" . $tab1[$key]['id_t']."'";
+        $result = mysqli_query($db, $select);
+        while ($row = mysqli_fetch_array($result)) {
+        $liste[] = $row;
+        }
+        
+        
         echo "<tr>
                 <td>" . $tab1[$key]['prenom'] . " " . $tab1[$key]['nom'] . "</td>
                 <td>" . $tab1[$key]['Ville_Depart'] . "</td>
                 <td>" . $tab1[$key]['Ville_Arrivee'] . "</td>
                 <td>" . $tab1[$key]['date_dep'] . " à " . $tab1[$key]['heure_dep'] . "h</td>
                 <td>" . $tab1[$key]['marque'] . " " . $tab1[$key]['modele'] . "</td>
-                <td>" . ($tab1[$key]['nb_place_dispo']) . "</td>
-                <td>" . $tab1[$key]['prix'] . "</td>
-                <td><input type = 'submit' name ='select" . $key . "' value='Réserver'/></td>
-                </tr>";
+                <td>" . ($tab1[$key]['nb_place_dispo']) . "</td>";
+                if($admin==1){
+                    echo "<td>";
+                    foreach($liste as $cle => $valeur) {
+                        if($liste[$cle]['nb_places']==1) {
+                            echo $liste[$cle]['nom']." ".$liste[$cle]['prenom']." (".$liste[$cle]['nb_places']." place)<br/>";
+                        }
+                         else {
+                            echo $liste[$cle]['nom']." ".$liste[$cle]['prenom']." (".$liste[$cle]['nb_places']." places)<br/>";
+                        }
+                    }
+                    echo "</td>";
+                }
+                echo "<td>" . $tab1[$key]['prix'] . "</td>";
+                if($admin==0){
+                echo "<td><input type = 'submit' name ='select" . $key . "' value='Réserver'/></td>";
+                }
+                echo "</tr>";
     }
     echo "</table></form>";
 }
@@ -109,7 +137,7 @@ function PreparerTrajet($tab1) {
         $result = mysqli_query($db, $select);
         while ($row = mysqli_fetch_array($result)) {
         $liste[] = $row;
-}
+        }
 
     echo "<p/>";
         echo "<input type='hidden' name='id_t" . $key . "' value = '" . $tab1[$key]['id_t'] . "'/>"; //pour recuperer trajet correspondant

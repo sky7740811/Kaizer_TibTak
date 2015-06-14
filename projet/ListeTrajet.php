@@ -39,7 +39,7 @@ while ($row = mysqli_fetch_assoc($resultat1)) {
 //$tab11 = array($tab1[0],$tab1[1],$tab1[2],$tab1[3],$tab1[4],$tab1[5],$tab1[6],$tab1[7]);
 //tab[0] = id_v tab[1] id_c tab[2] marque tab[3] modele tab[4]=couleur tab[5] nb place dispo tab[6]=annee
 // print_r($tab1);
-listTrajet($tab1);
+listTrajet($tab1,1);
 
 customFooter();
 ?>

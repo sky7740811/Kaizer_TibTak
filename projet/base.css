@@ -25,7 +25,7 @@ body {
 
 /*fieldset*/
 fieldset {
-   margin : auto;
+   margin-left : 200px;
     width: 400px;
     padding: 20px;
     border: none;
@@ -257,7 +257,7 @@ background-color: #eeeeee;
 
 /* Contenu */
 #contenu {
-    margin-left: 20%;
+    margin-left: 200px;
     //margin-right: 20%;
     padding: 10px 10px;
     width : 80%;
@@ -294,7 +294,7 @@ table {
 	line-height: 24px;
 	margin: 30px auto;
 	text-align: center;
-	width: 1000px;
+	width: 1050px;
 }	
 
 th {

@@ -111,7 +111,7 @@ if (isset($_POST['recherche'])) {
             js("document.location.href = 'SelectTrajet.php'");
         }
 
-        listTrajet($tab2);
+        listTrajet($tab2,0);
     }
 }
 ?>

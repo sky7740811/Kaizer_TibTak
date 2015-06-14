@@ -11,7 +11,7 @@
             header('location:accueil.php');
         }
         ?>
-        <fieldset style="margin-top: 10% ">
+        <fieldset style="margin: auto; margin-top: 100px; ">
             <Legend>Identification</legend>
             <form method="post" action="verifcompte.php">
                 <label>Login</label>

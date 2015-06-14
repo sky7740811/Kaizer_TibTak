@@ -23,7 +23,7 @@ $tab = mysqli_fetch_array($resultat);
 
 
 if (empty($tab)) { //utilisateur a jamais enregistrer son vehicule
-    js("alert('Veuillez d abord enregistrer votre v\éhicule')");
+    js("alert('Veuillez d\'abord enregistrer votre v\éhicule')");
     js("document.location.href = 'infovehicule.php'");
 } else {
 
